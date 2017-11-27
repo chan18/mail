@@ -15,6 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// REST API
-Route::get('/testmail',['uses' => 'EmailController@index']);
+Route::get('/mail',['uses' => 'EmailController@index']);
+Route::get('/send',['uses' => 'EmailController@send']);
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('user/profile', function () {
+        return "<h1> this is user profile </h1>";
+    });
+
+});
