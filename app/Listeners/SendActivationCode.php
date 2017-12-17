@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 use Log;
 
-class SendActivationCode
+class SendActivationCode implements ShouldQueue
 {
     /**
      * Create the event listener.
